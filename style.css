@@ -1,0 +1,134 @@
+/* custom style sheet */
+
+/* colours used */
+:root{
+    --glass1: #5A5BF3;
+    --glass2: #60A2F5;
+    --glass3: #3956ED;
+    --glass4: #91E7D9;
+    --glass5: #A0B5EB;
+    --glass6: #4169e1;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #252525;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    aspect-ratio: 1/1;
+    perspective: 800px;
+}
+
+.container{
+    width: 300px;
+    aspect-ratio: 1/1;
+    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+    transform-origin: center center;
+    animation: rotate 5s linear infinite;
+}
+
+.glass{
+    width: 50px;
+    height: 100%;
+    border-radius: 5px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform-origin: left;
+}
+
+.glass .piece{
+    height: 100%;
+    aspect-ratio: 9/16;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border-radius: 10px;
+    opacity: 0.7;
+    backdrop-filter: blur(2px);
+}
+
+/* positioning glasses */
+.glass1{
+    transform: rotateY(60deg);
+}
+.glass2{
+    transform: rotateY(120deg);
+}
+.glass3{
+    transform: rotateY(180deg);
+}
+.glass4{
+    transform: rotateY(240deg);
+}
+.glass5{
+    transform: rotateY(300deg);
+}
+.glass6{
+    transform: rotateY(360deg);
+}
+
+/* adding reflections to glasses */
+.glass .piece{
+    -webkit-box-reflect: below 5px linear-gradient(to bottom, #00000066, #00000000);
+}
+
+/* giving background colour to glasses */
+.glass1 .piece{
+    background-image: linear-gradient(60deg, var(--glass1), var(--glass6));
+}
+.glass2 .piece{
+    background-image: linear-gradient(60deg, var(--glass2), var(--glass6));
+}
+.glass3 .piece{
+    background-image: linear-gradient(60deg, var(--glass3), var(--glass6));
+}
+.glass4 .piece{
+    background-image: linear-gradient(60deg, var(--glass4), var(--glass6));
+}
+.glass5 .piece{
+    background-image: linear-gradient(60deg, var(--glass5), var(--glass6));
+}
+.glass6 .piece{
+    background-image: linear-gradient(60deg, var(--glass6), var(--glass6));
+}
+
+/* adding hover effect to the glasses */
+.glass1 .piece:hover{
+    box-shadow: 5px 5px 50px 5px var(--glass1);
+}
+.glass2 .piece:hover{
+    box-shadow: 5px 5px 50px 5px var(--glass2);
+}
+.glass3 .piece:hover{
+    box-shadow: 5px 5px 50px 5px var(--glass3);
+}
+.glass4 .piece:hover{
+    box-shadow: 5px 5px 50px 5px var(--glass4);
+}
+.glass5 .piece:hover{
+    box-shadow: 5px 5px 50px 5px var(--glass5);
+}
+.glass6 .piece:hover{
+    box-shadow: 5px 5px 50px 5px var(--glass6);
+}
+
+@keyframes rotate {
+    to{
+        transform: rotateY(360deg);
+    }
+}
